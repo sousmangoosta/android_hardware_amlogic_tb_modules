@@ -1,5 +1,13 @@
+ifndef KERNEL_A32_SUPPORT
+KERNEL_A32_SUPPORT := true
+endif
+ifeq ($(KERNEL_A32_SUPPORT), true)
+KERNEL_ARCH ?= arm
+CROSS_COMPILE ?= arm-linux-gnueabihf-
+else
 KERNEL_ARCH ?= arm64
 CROSS_COMPILE ?= aarch64-linux-gnu-
+endif
 DETECT_IN=hardware/amlogic/tb_modules
 DETECT_OUT=$(PRODUCT_OUT)/obj/tb_modules
 
