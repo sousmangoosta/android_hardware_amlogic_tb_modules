@@ -1,22 +1,7 @@
-tb_detect-objs = tb_module.o
+tb_detect-objs = tb_module.o tbff_fwalg_20180704.o_shipped
 obj-$(CONFIG_TB_DETECT)	+= tb_detect.o
-
-ifndef KERNEL_A32_SUPPORT
-KERNEL_A32_SUPPORT := true
-endif
-
-ifeq ($(KERNEL_A32_SUPPORT), true)
-	TEXT = "this is 32bit"
-	ARCH ?= arm
-	CROSS_COMPILE ?= arm-linux-gnueabihf-
-	tb_detect-objs += 32bit/tbff_fwalg_20190319.o_shipped
-else
-	TEXT = "this is 64bit"
-	ARCH ?= arm64
-	CROSS_COMPILE ?= aarch64-linux-gnu-
-	tb_detect-objs += 64bit/tbff_fwalg_20190322.o_shipped
-endif
-$(warning $(TEXT))
+ARCH ?= arm64
+CROSS_COMPILE ?= aarch64-linux-gnu-
 KDIR ?=
 
 tb_detect:
