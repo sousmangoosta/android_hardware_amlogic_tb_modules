@@ -1,6 +1,6 @@
 ifeq ($(KERNEL_A32_SUPPORT), true)
 KERNEL_ARCH := arm
-CROSS_COMPILE := arm-linux-gnueabihf-
+CROSS_COMPILE := /opt/toolchains/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
 else
 KERNEL_ARCH := arm64
 CROSS_COMPILE := aarch64-linux-gnu-
