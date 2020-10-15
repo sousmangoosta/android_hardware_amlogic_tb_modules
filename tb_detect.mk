@@ -23,7 +23,7 @@ $(TB_DETECT_KO):
 	mkdir -p $(DETECT_OUT)
 	cp $(DETECT_IN)/* $(DETECT_OUT)/ -airf
 	@echo "make Amlogic TB Detect module KERNEL_ARCH is $(KERNEL_ARCH)"
-	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/$(DETECT_OUT)/ ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) CONFIG_TB_DETECT=m modules
+	PATH=/bin:$$PATH $(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/$(DETECT_OUT)/ ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(CROSS_COMPILE) CONFIG_TB_DETECT=m modules
 
 	mkdir -p $(PRODUCT_OUT)/obj/lib_vendor
 	rm $(PRODUCT_OUT)/obj/lib_vendor/tb_detect.ko -f
